@@ -2,8 +2,10 @@ const express = require('express')
 const app = express()
 const port = 3000
 const client = require('./database/connection')
+const cors = require('cors');
 
 app.use(express.json());
+app.use(cors());
 
 const multer = require('multer')
 const storage = multer.diskStorage({
@@ -20,9 +22,6 @@ app.get('/', (req, res) => {
   res.json({'message':'Hello World of manish!'})
 })
 
-app.post('/', (req, res) => {
-    res.send('Hello World!')  
-})
 
 app.get('/blog', async (req, res) => {
   const result = await client.query("SELECT * FROM blogs");
@@ -37,10 +36,6 @@ app.post('/blog', async (req, res) => {
 
 app.post('/blogimage', upload.single('file'), function (req, res, next) {
   res.json(req.file);
-})
-
-app.post('/', (req, res) => {
-  res.send('Hello World!')  
 })
 
 app.listen(port, () => {

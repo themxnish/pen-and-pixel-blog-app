@@ -9,10 +9,7 @@ const client = new Client({
 
 async function check(){
     await client.connect();
-    // const res = await client.query("SELECT * FROM blogs");
-    // console.log(res.rows);
-    // await client.end();
 }
 
 check();
-module.exports = client;
+module.exports = client; 

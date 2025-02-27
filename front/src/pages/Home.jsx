@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Blogcard from "../components/Blogcard";
+import { getBlogs } from "../../api/api";
 
 const Home = () => {
+
+    const [blogs, setBlogs] = useState(null);
+
+    useEffect(() => { 
+        async function fetchBlogs() {
+            const allBlogs = await getBlogs();
+            setBlogs(allBlogs.data);
+        }
+        fetchBlogs();
+    }, []);
 
     const data = [
         {
@@ -35,6 +46,7 @@ const Home = () => {
                 <h1 className="text-2xl font-comic-sans font-bold text-slate-800 mt-2">
                 Featured Blogs
                 </h1>
+                <p>{JSON.stringify(blogs)}</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
                     {data.map((x, index) => {
                         return <Blogcard key={index} blogdata={x} />;
