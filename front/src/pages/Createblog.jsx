@@ -66,7 +66,6 @@ const Createblog = (props) => {
                 <h1 className="text-2xl font-bold mb-6 text-center items-center justify-center font-sans">Create a new blog post</h1>
                 <div className="w-full h-[2px] bg-slate-300 mb-6"></div>
                 <div className="flex flex-col space-y-6">
-                    <small>{JSON.stringify(newBlog)}</small>
                 <div>
                     <label htmlFor="title" className="ml-1 text-slate-600 font-bold block mb-2">Title</label>
                     <input type="text" value={newBlog.title} onChange={(e) => setNewBlog({...newBlog, title: e.target.value})} id="title" className="h-10 w-full border border-slate-500 rounded-lg my-2 p-2" placeholder="Enter title" />

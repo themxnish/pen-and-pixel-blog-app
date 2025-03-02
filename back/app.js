@@ -36,6 +36,11 @@ app.post('/blog', async (req, res) => {
   res.send({'message':'Blog created successfully!',"description":result.rowCount});  
 })
 
+app.get('/blog/:id', async (req, res) => {
+  const result = await client.query('SELECT * FROM blogs WHERE id = $1', [req.params.id]);
+  res.json({'data':result.rows});
+})
+
 app.post('/blogimage', upload.single('file'), function (req, res, next) {
   res.json(req.file);
 })

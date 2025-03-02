@@ -20,11 +20,16 @@ export const createBlog = (data) => {
     .catch(error => {
         return error;
     });
-    
 }
 
-const getBlogsById = () => {
-    
+export const getBlogsById = (id) => {
+    return axios.get(apiURL + "/blog/" + id)
+    .then(result => {
+        return result.data
+    })
+    .catch(error => {
+        return error;
+    });
 }
 
 export const uploadFile = (file) => {
