@@ -11,7 +11,7 @@ const Layout = () => {
         <div className="min-h-screen flex flex-col">
                 {/* <header></header> */}
             <div className="border-b shadow-lg bg-gradient-to-r from-slate-400 to-slate-500">
-                    <div className="container px-5 py-5 flex justify-between">
+                    <div className = "px-5 py-5 flex justify-between">
                         <Link to='/' className="hover:opacity-60 transition-opacity">
                         <span className="font-black text-3xl bg-clip-text font-comic-sans">Pen & Pixel</span>
                         </Link>
