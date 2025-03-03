@@ -19,7 +19,7 @@ const Layout = () => {
                             <ul className="flex wrap space-x-6">
                                 {menu.map((item, index) => (
                                     <li key={index}>
-                                        <Link className="px-3 py-2 font-medium hover:text-slate-900 rounded-md uppercase text-sm font-sans">
+                                        <Link className="px-3 py-2 font-medium hover:text-slate-900 rounded-md uppercase text-sm font-sans" to = {`/?category=${item.text}`}>
                                             <span>{item.text}</span>
                                         </Link> 
                                     </li>

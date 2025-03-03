@@ -25,8 +25,9 @@ app.get('/', (req, res) => {
 })
 
 
-app.get('/blog', async (req, res) => {
-  const result = await client.query("SELECT * FROM blogs");
+app.get('/blog/:category', async (req, res) => {
+  const result = await client.query(
+    req.params.category !== 'all' ? `SELECT * FROM blogs WHERE category = '${req.params.category}'` : "SELECT * FROM blogs");
   res.json({'data':result.rows});
 })
 
@@ -36,7 +37,7 @@ app.post('/blog', async (req, res) => {
   res.send({'message':'Blog created successfully!',"description":result.rowCount});  
 })
 
-app.get('/blog/:id', async (req, res) => {
+app.get('/blogbyid/:id', async (req, res) => {
   const result = await client.query('SELECT * FROM blogs WHERE id = $1', [req.params.id]);
   res.json({'data':result.rows});
 })

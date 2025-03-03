@@ -26,7 +26,7 @@ const Blog = () => {
                     <div className="flex mt-4 mb-4">
                         <small>{dateFormat(blogs.createdone)}</small>
                     </div>
-                    <img className="w-[50%] h-[50%] hover:scale-[0.97] transition-transform duration-300 rounded-lg shadow-2xl item-center m-auto justify-center" src={apiURL + blogs.image} alt="" />
+                    <img className="w-[50%] h-[50%] hover:scale-[0.97] transition-transform duration-300 rounded-lg shadow-2xl item-center m-auto justify-center bg-no-repeat bg-cover bg-center" src={apiURL + blogs.image} alt="" />
                     <div className="mt-10 mb-5 text-left text-slate-800 font-sans">
                         {parse(blogs.post)}
                     </div>

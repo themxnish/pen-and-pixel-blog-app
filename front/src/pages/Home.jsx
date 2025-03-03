@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Blogcard from "../components/Blogcard";
 import { getBlogs } from "../../api/api";
+import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
-
+    let [searchParams, setSearchParams] = useSearchParams();
     const [blogs, setBlogs] = useState(null);
 
     useEffect(() => { 
@@ -13,6 +14,14 @@ const Home = () => {
         }
         fetchBlogs();
     }, []);
+
+    useEffect(() => { 
+        async function fetchBlogs() {
+            const allBlogs = await getBlogs(searchParams.get('category'));
+            setBlogs(allBlogs.data);
+        }
+        fetchBlogs();
+    }, [searchParams]);
     
     return (
         <div className="space-y-8">
