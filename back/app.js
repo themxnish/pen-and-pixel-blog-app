@@ -24,6 +24,11 @@ app.get('/', (req, res) => {
   res.json({'message':'Hello World of manish!'})
 })
 
+app.get("/api/blogs", async (req, res) => {
+  const searchTerm = req.query.search || "";
+  const { rows } = await client.query(`SELECT * FROM blogs WHERE title ILIKE $1`, [`%${searchTerm}%`]);
+  res.json({ data: rows });
+});
 
 app.get('/blog/:category', async (req, res) => {
   const result = await client.query(

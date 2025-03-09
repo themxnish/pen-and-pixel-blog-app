@@ -10,13 +10,13 @@ const Layout = () => {
     return (
         <div className="min-h-screen flex flex-col">
                 {/* <header></header> */}
-            <div className="border-b shadow-lg bg-gradient-to-r from-slate-400 to-slate-500">
-                    <div className = "px-5 py-5 flex justify-between">
+            <div className="border-b shadow-lg bg-gradient-to-r from-slate-400 to-slate-500 overflow-hidden">
+                    <div className = "px-5 py-5 flex justify-between items-center flex-wrap">
                         <Link to='/' className="hover:opacity-60 transition-opacity">
                         <span className="font-black text-3xl bg-clip-text font-comic-sans">Pen & Pixel</span>
                         </Link>
-                        <div className="flex items-center space-x-8">
-                            <ul className="flex wrap space-x-6">
+                        <div className="flex space-x-8 w-full flex-wrap">
+                            <ul className="flex items-center space-x-6 ml-auto">
                                 {menu.map((item, index) => (
                                     <li key={index}>
                                         <Link className="px-3 py-2 font-medium hover:text-slate-900 rounded-md uppercase text-sm font-sans" to = {`/?category=${item.text}`}>
@@ -25,7 +25,7 @@ const Layout = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <Link to={"/create"} className="bg-slate-800 hover:bg-slate-900 text-white px-5 py-2.5 rounded font-medium shadow-xl">New Post</Link>
+                            <Link to={"/create"} className="bg-slate-800 hover:bg-slate-900 text-white px-5 py-2.5 rounded font-medium shadow-xl whitespace-nowrap ml-auto">New Post</Link>
                         </div>
                     </div>
                     {/* <body></body> */}

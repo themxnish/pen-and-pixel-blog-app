@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import axios from "axios";
 
 const apiURL = "http://localhost:3000";
@@ -49,3 +50,13 @@ export const uploadFile = (file) => {
         return error
     }); 
 }
+
+export const searchBlogs = async (searchTerm = "") => {
+    try {
+        const response = await axios.get(apiURL + "/api/blogs?search=" + searchTerm);
+        return response.data;
+    } catch (err) {
+        console.log(err);
+        return { data: [] };
+    }
+};
